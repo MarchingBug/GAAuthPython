@@ -14,7 +14,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     
     try:
        logging.info("Python HTTP trigger function processed a request.")
+       logging.info("about to get keyvault")
        keyvaultName = os.environ['KEY_VAULT_URL']      
+       logging.info(keyvaultName)
        kvClient = SecretClient(vault_url=keyvaultName, credential=DefaultAzureCredential())
        logging.info("got key vault client")
 
